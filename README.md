@@ -578,6 +578,18 @@ docs.query(
 
 In general, embeddings are cached when you pickle a `Docs` regardless of what vector store you use. So as long as you save your underlying `Docs` object, you should be able to avoid re-embedding your documents.
 
+```python
+import pickle
+
+# save
+with open("my_docs.pkl", "wb") as f:
+    pickle.dump(docs, f)
+
+# load
+with open("my_docs.pkl", "rb") as f:
+    docs = pickle.load(f)
+```
+
 ## Customizing Prompts
 
 You can customize any of the prompts using settings.
